@@ -1,0 +1,23 @@
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# CI/CD files
+.github/
+
+# Documentation
+README.md
+*.md
+docs/
+
+# Development files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+temp/

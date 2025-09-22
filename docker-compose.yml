@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  keepalived:
+    build: .
+    container_name: keepalived
+    restart: unless-stopped
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+      - NET_BROADCAST
+      - NET_RAW
+    volumes:
+      - ./config/keepalived.conf:/etc/keepalived/keepalived.conf:ro
+      - /lib/modules:/lib/modules:ro
+    environment:
+      - KEEPALIVED_INTERFACE=eth0
+      - KEEPALIVED_PRIORITY=100
+      - KEEPALIVED_VIRTUAL_IPS=192.168.1.100
+    # For debugging
+    # command: ["keepalived", "-n", "-l", "-D", "-d", "-f", "/etc/keepalived/keepalived.conf"]
